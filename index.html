@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Тест монитора онлайн - monitor-test</title>
+        <meta name="description" content="Онлайн сервис для проверки и настройки монитора: проверка на битые пиксели, цветопередачи, отклика и др. Программа теста монитора.">
+        <meta name="keywords" content="монитор, дисплей, экран, тест, проверка, настройка, калибровка, динамические тесты">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="./files/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./files/main.css?v=3">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+        
+    </head>
+    <body>
+        <header id="page-header">
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <span class="navbar-brand">
+                            <a class="navbar-title" href="./" title="проверка монитора онлайн">monitor-test</a>&nbsp<sup>тест&nbsp;монитора&nbsp;онлайн</sup>
+                        </span>
+                    </div>
+
+                    <div id="social" class="hidden-xs">
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="article">
+            
+
+<div id="front">
+
+    <div class="front-content">
+        <div class="container">
+            <div id="board" class="row">
+                <div id="logo-box" class="col-md-2"><img id="logo" src="./files/mon.png" ></div>
+                <div class="col-md-6">
+                                        <p>
+                        Добро пожаловать на monitor-test &mdash; сервис для теста монитора компьютера, дисплея мобильного устройства или экрана Смарт-телевизора.
+                        Тестовые экранные шаблоны помогут вам оценить качество изображения монитора.
+                        Вы легко сможете проверить монитор на бытые пиксели, цветопередачу, отклик и другие параметры, а также настроить и откалибровать монитор, чтобы получить наилучшее качество изображения.
+                        Эти тесты являются гораздо более показательным в оценке недостатков мониторов, чем обычные фотографии.
+                    </p>
+                    <button id="start" class="btn btn-primary btn-lg">Начать</button>
+                    <a href="./about-tests.html" id="more">Узнать больше о тестах</a>
+                    <p>
+
+                    </p>
+                </div>
+                <div class="col-md-4"><div id="mad" class="vert-offset-top-1"> 
+				</div></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<canvas id="canvas"></canvas>
+
+
+<div id="controls" class="noselect">
+    <div id="indicators">
+        <ol id="indicators-list" class="carousel-indicators">
+        </ol>
+    </div>
+
+    <div id="buttons">
+        <button id="home" class="btn btn-default btn-inv" title="В начало"><span class="glyphicon glyphicon-home"></span></button>
+
+        <div id="xs-buttons">
+            <button id="rotate-ccw" class="btn btn-default btn-xs btn-inv" title="Повернуть влево"><span class="glyphicon glyphicon-repeat glyphicon-ccw"></span></button>
+            <button id="rotate-cw" class="btn btn-default btn-xs btn-inv" title="Повернуть вправо"><span class="glyphicon glyphicon-repeat glyphicon-cw"></span></button>
+        </div>
+        <div id="screen-groups" class="btn-group dropup">
+            <button type="button" class="btn btn-default dropdown-toggle btn-inv" data-toggle="dropdown">
+                <span id="sg-caption" class="caption"></span> <span class="caret"></span>
+            </button>
+            <ul id="sg-list" class="dropdown-menu" role="menu">
+            </ul>
+        </div>
+    </div>
+
+    <button id="fsToggle" class="btn btn-default btn-inv" title="Полноэкранный режим (вкл./выкл.)"><span class="glyphicon glyphicon-fullscreen"></span></button>
+</div>
+
+<div id="nav-controls">
+    <a class="left carousel-control" href="#prev" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" href="#next" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
+</div>
+
+<div id="fin" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div>
+                    <h3>Тесты закончились</h3>
+                    <p>
+                        Надеемся вы не нашли ни одного дефекта и вам помогли данные тесты проверить и настроить монитор.
+                    </p>
+                    <p>
+                        Будем рады если вы поделитесь ссылкой с друзьями.
+                    </p>
+                </div>
+                <div id="fin-social">
+                   
+                </div>
+                <div id="fin-adv">
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="fin-close" type="button" class="btn btn-default" data-dismiss="modal">Завершить</button>
+                <button id="fin-restart" type="button" class="btn btn-primary">Продолжить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <video id="video" loop style="display:none;">
+                <source src="./files/vi.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div id="madv"></div>
+
+        <footer id="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <p><a href="./">monitor-test</a> &mdash; тест монитора онлайн</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <a href="./about.html">О проекте</a>
+                            <br>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="./files/jquery-1.11.1.min.js"><\/script>')</script>
+        <script src="./files/jquery.mobile.custom.min.js"></script>
+
+        <script src="./files/bootstrap.min.js"></script>
+
+                <script src="./files/main.min.js?v=8"></script>
+            
+    </body>
+</html>
